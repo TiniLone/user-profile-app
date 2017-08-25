@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
+import { FormsModule } from '@angular/forms';
 
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
+import { TutComponent } from './tut_component/tut.component';
+import { UserProfilComponent } from './user_profil_component/user_profil.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPy4KJIUIkxrgxsohvYSUhYYbHBElRXNs',
@@ -18,10 +21,13 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TutComponent,
+    UserProfilComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule

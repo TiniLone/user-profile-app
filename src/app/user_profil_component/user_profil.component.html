@@ -1,0 +1,10 @@
+<h1>User Profile</h1>
+<div class="row columns">
+  <input type="text" #name id="name" placeholder="Enter your name here" />
+  <input type="text" #email id="email" placeholder="Enter your email here" />
+  <button class="button large expanded" (click)="Send(name.value, email.value)">Save</button>
+
+  <div id="details-container">
+    <p *ngFor="let user of users | async">{{user.name}} : {{user.email}}</p>
+  </div>
+</div>
