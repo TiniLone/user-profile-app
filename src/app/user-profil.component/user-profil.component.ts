@@ -7,8 +7,8 @@ import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-user-profil',
-  templateUrl: './user_profil.component.html',
-  styleUrls: ['./user_profil.component.css']
+  templateUrl: './user-profil.component.html',
+  styleUrls: ['./user-profil.component.css']
 })
 
 export class UserProfilComponent {

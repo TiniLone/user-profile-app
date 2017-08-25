@@ -10,5 +10,6 @@ import * as firebase from 'firebase/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 }

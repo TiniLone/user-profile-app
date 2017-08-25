@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
-import { TutComponent } from './tut_component/tut.component';
-import { UserProfilComponent } from './user_profil_component/user_profil.component';
+import { TutComponent } from './tut.component/tut.component';
+import { UserProfilComponent } from './user-profil.component/user-profil.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCPy4KJIUIkxrgxsohvYSUhYYbHBElRXNs',
@@ -19,6 +20,11 @@ export const firebaseConfig = {
   messagingSenderId: '541050256862'
 };
 
+const appRoutes: Routes = [
+  { path: 'tut', component: TutComponent },
+  { path: 'user-profil', component: UserProfilComponent }
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +32,10 @@ export const firebaseConfig = {
     UserProfilComponent
   ],
   imports: [
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    ),
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -35,4 +45,5 @@ export const firebaseConfig = {
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
