@@ -12,4 +12,17 @@ import * as firebase from 'firebase/app';
 })
 
 export class AppComponent {
+  user: Observable<firebase.User>;
+
+  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+    this.user = this.afAuth.authState;
+  }
+
+  login() {
+    this.afAuth.auth.signInAnonymously();
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+  }
 }

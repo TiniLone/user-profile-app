@@ -12,29 +12,18 @@ import * as firebase from 'firebase/app';
 })
 
 export class TutComponent {
-  user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
   msgVal = '';
 
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+  constructor(public af: AngularFireDatabase) {
     this.items = af.list('/messages', {
       query: {
         limitToLast: 50
       }
     });
-
-    this.user = this.afAuth.authState;
   }
 
-  login() {
-    this.afAuth.auth.signInAnonymously();
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
-
-  Send(desc: string) {
+  send(desc: string) {
     this.items.push({ messages : desc });
     this.msgVal = '';
   }

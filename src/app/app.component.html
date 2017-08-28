@@ -1,7 +1,13 @@
-<nav>
-    <ul class="menu">
-        <li><a routerLink="/tut" routerLinkActive="active">Tutorial</a></li>
-        <li><a routerLink="/user-profil" routerLinkActive="active">User Profil</a></li>
-    </ul>
-</nav>
-<router-outlet></router-outlet>
+<div class="row columns">
+    <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+    <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+</div>
+<div *ngIf="(user | async)?.uid">
+    <nav>
+        <ul class="menu">
+            <li class="is-active"><a routerLink="/tut" routerLinkActive="active">Tutorial</a></li>
+            <li><a routerLink="/user-profil" routerLinkActive="active">User Profil</a></li>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+</div>
